@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/frag_menu">
+
+    <fragment
+        android:id="@+id/frag_menu"
+        android:name="com.example.todoapp.presentation.MainMenuFragment"
+        tools:layout="@layout/fragment_main_menu"
+        android:label="MainMenuFragment" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_settingsFragment"
+            app:destination="@id/frag_settings" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/frag_settings"
+        android:name="com.example.todoapp.presentation.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_mainMenuFragment"
+            app:destination="@id/frag_menu" />
+    </fragment>
+</navigation>
