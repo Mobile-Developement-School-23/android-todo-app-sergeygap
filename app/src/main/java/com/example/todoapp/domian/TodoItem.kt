@@ -8,7 +8,7 @@ data class TodoItem(
     var importance: Importance,
     var deadline: Date? = null,
     var isDone: Boolean,
-    var dateCreation: Date,
+    var dateCreation: String,//todo()
     var dateModification: Date? = null,
 ){
     companion object{

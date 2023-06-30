@@ -58,9 +58,10 @@
         app:layout_constraintTop_toBottomOf="@id/main_done_amount">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/todo_preview_list"
+            android:id="@+id/todo_rv_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:background="@drawable/todo_layout_bg"
             tools:listitem="@layout/todo_item"
             android:orientation="vertical"

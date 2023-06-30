@@ -32,12 +32,13 @@ object TodoRepositoryImpl : TodoRepository {
         for (i in 0 until 10) {
             val randomImportance = importanceValue.random()
             val item = TodoItem(
-                i,
-                todoTextList[i],
-                randomImportance,
+                id = i,
+                text = todoTextList[i],
+                importance = randomImportance,
                 null,
                 Random.nextBoolean(),
-                SimpleDateFormat("dd.MM.yyyy").parse("10 .10.2010"),
+                "",
+                //SimpleDateFormat("dd.MM.yyyy").parse("10 .10.2010"),
                 null
             )
             addTodoItem(item)
