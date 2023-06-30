@@ -1,13 +1,18 @@
 package com.example.todoapp.data
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.todoapp.domian.Importance
 import com.example.todoapp.domian.TodoItem
 import com.example.todoapp.domian.TodoRepository
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import kotlin.random.Random
 
+@RequiresApi(Build.VERSION_CODES.O)
 object TodoRepositoryImpl : TodoRepository {
 
     private val todoItemLiveData = MutableLiveData<List<TodoItem>>()
@@ -28,6 +33,10 @@ object TodoRepositoryImpl : TodoRepository {
     )
 
     init {
+        val dateString = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+        val dateFormatter = SimpleDateFormat("dd.MM.yyyy")
+        val date = dateFormatter.parse(dateString)
+
         val importanceValue = Importance.values()
         for (i in 0 until 10) {
             val randomImportance = importanceValue.random()
@@ -35,10 +44,9 @@ object TodoRepositoryImpl : TodoRepository {
                 id = i,
                 text = todoTextList[i],
                 importance = randomImportance,
-                null,
-                Random.nextBoolean(),
-                "",
-                //SimpleDateFormat("dd.MM.yyyy").parse("10 .10.2010"),
+                deadline = date,
+                isDone = Random.nextBoolean(),
+                dateCreation = date,
                 null
             )
             addTodoItem(item)

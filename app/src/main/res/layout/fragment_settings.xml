@@ -16,7 +16,8 @@
         android:padding="11dp"
         android:src="@drawable/ic_close"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/back" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/editor_save"
@@ -103,9 +104,9 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_margin="12dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@id/editor_date"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.SwitchCompat
@@ -113,6 +114,8 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_margin="12dp"
+        android:checked="false"
+        android:theme="@style/Switch"
         app:layout_constraintBottom_toTopOf="@id/bottom_separator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_separator" />
@@ -133,10 +136,10 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_high_importance"
             android:drawablePadding="5dp"
+            android:drawableTint="@color/color_dark_red"
             android:text="@string/high_importance"
-            android:textSize="16sp"
             android:textColor="@color/color_dark_red"
-            android:drawableTint="@color/color_dark_red"/>
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/editor_mid"
@@ -164,8 +167,8 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/importance_button"
-        android:textSize="16sp"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/editor_importance"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
