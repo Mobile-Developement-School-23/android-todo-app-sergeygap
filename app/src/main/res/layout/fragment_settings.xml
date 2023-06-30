@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/back_light_primary">
 
     <ImageButton
         android:id="@+id/editor_exit"
@@ -26,6 +27,7 @@
         android:background="?attr/selectableItemBackground"
         android:focusable="true"
         android:text="@string/save_button"
+        android:textAllCaps="true"
         android:textColor="@color/color_light_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,8 +60,9 @@
     <View
         android:id="@+id/bottom_separator"
         android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:layout_margin="12dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@id/editor_delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -82,6 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/date_button"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -97,10 +101,11 @@
     <View
         android:id="@+id/top_separator"
         android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:layout_margin="12dp"
         app:layout_constraintBottom_toTopOf="@id/editor_date"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.SwitchCompat
@@ -129,7 +134,9 @@
             android:drawableStart="@drawable/ic_high_importance"
             android:drawablePadding="5dp"
             android:text="@string/high_importance"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/color_dark_red"
+            android:drawableTint="@color/color_dark_red"/>
 
         <RadioButton
             android:id="@+id/editor_mid"
@@ -158,6 +165,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/importance_button"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/editor_importance"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
