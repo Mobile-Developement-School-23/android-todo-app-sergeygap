@@ -33,6 +33,7 @@ object TodoRepositoryImpl : TodoRepository {
     )
 
     init {
+
         val dateString = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
         val dateFormatter = SimpleDateFormat("dd.MM.yyyy")
         val date = dateFormatter.parse(dateString)
