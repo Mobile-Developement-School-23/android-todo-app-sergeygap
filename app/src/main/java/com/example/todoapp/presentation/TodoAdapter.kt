@@ -22,7 +22,6 @@ class TodoAdapter : ListAdapter<TodoItem, TodoItemViewHolder>(TodoItemDiffCallba
         }
         holder.tvText.text = todoItem.text
         holder.tvDate.text = todoItem.deadline.toString()
-        holder.checkBox.isChecked = todoItem.isDone //todo()
+        holder.checkBox.isChecked = todoItem.isDone //
     }
-
 }

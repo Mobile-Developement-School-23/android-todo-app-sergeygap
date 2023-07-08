@@ -21,7 +21,6 @@ import java.text.SimpleDateFormat
 
 class SettingsFragment : Fragment() {
 
-
     private var screenMode: String = MODE_UNKNOWN
     private var todoItemId: Int = TodoItem.UNDEFINED_ID
     private lateinit var viewModel: SettingsViewModel
@@ -33,12 +32,12 @@ class SettingsFragment : Fragment() {
     private lateinit var editText: EditText
 
     private lateinit var importance: RadioGroup
-    private lateinit var highButton: RadioButton//todo
+    private lateinit var highButton: RadioButton // todo
     private lateinit var midButton: RadioButton
     private lateinit var lowButton: RadioButton
 
     private lateinit var dateSwitch: SwitchCompat
-    private lateinit var dateSelect: LinearLayout//todo
+    private lateinit var dateSelect: LinearLayout // todo
     private lateinit var dateView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +51,6 @@ class SettingsFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_settings, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,15 +68,15 @@ class SettingsFragment : Fragment() {
     private fun launchEditMode() {
 //        deleteButton.setOnClickListener {
 //            val item = viewModel.getTodoItem(todoItemId)
-////            mainViewModel.deleteTodoItem()
+// //            mainViewModel.deleteTodoItem()
 //        }
     }
-
 
     private fun launchAddMode() {
         saveButton.setOnClickListener {
             viewModel.addTodoItem(
-                editText.text.toString(), searchImportance(),
+                editText.text.toString(),
+                searchImportance(),
                 false,
                 SimpleDateFormat("dd.MM.yyyy").parse("09.10.2003")
             )
@@ -136,7 +134,6 @@ class SettingsFragment : Fragment() {
                 putString(SCREEN_MODE, MODE_ADD)
             }
         }
-
     }
 
     fun newInstanceEditItem(todoItemId: Int): SettingsFragment {

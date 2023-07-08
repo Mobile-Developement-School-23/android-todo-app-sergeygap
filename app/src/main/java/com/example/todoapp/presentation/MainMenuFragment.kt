@@ -4,15 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainMenuFragment : Fragment() {
+
     private lateinit var viewModel: MainViewModel
     private lateinit var todoAdapter: TodoAdapter
     private lateinit var recyclerView: RecyclerView
@@ -25,14 +24,13 @@ class MainMenuFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_main_menu, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews(view)
         setupRecyclerView()
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel.todoList.observe(viewLifecycleOwner) {
-            todoAdapter.submitList(it)//подписка
+            todoAdapter.submitList(it) // подписка
         }
         floatingActionButtonListener()
     }
@@ -41,7 +39,6 @@ class MainMenuFragment : Fragment() {
         floatingActionButton.setOnClickListener {
             launchSettingFragment()
         }
-
     }
 
     private fun initViews(view: View) {
@@ -53,30 +50,6 @@ class MainMenuFragment : Fragment() {
         todoAdapter = TodoAdapter()
         recyclerView.adapter = todoAdapter
         setupClickListener()
-        setupSwipeListener(recyclerView)
-
-    }
-
-    private fun setupSwipeListener(recyclerView: RecyclerView) {
-        val callback = object : ItemTouchHelper.SimpleCallback(
-            0,
-            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
-        ) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val item = todoAdapter.currentList[viewHolder.adapterPosition]
-                viewModel.deleteTodoItem(item)
-            }
-        }
-        val itemTouchHelper = ItemTouchHelper(callback)
-        itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
     private fun setupClickListener() {
@@ -91,5 +64,4 @@ class MainMenuFragment : Fragment() {
             .addToBackStack(null)
             .commit()
     }
-
 }

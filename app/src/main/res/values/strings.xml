@@ -15,4 +15,6 @@
     <string name="delete_button">Удалить</string>
     <string name="date_button">Сделать до</string>
     <string name="back">Back</string>
+    <string name="error_input_name">Invalid name</string>
+    <string name="error_input_count">Invalid count</string>
 </resources>
